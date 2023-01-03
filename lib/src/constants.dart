@@ -6,7 +6,7 @@ import 'widgets/select_option.dart';
 
 const Color seedColor = Color(0xFF30A3F0);
 
-const defaultSheetHeight = 0.2;
+const defaultSheetHeight = 0.1;
 
 const List<Map<String, dynamic>> defaultPopupMenuItems = [
   // {
@@ -15,71 +15,71 @@ const List<Map<String, dynamic>> defaultPopupMenuItems = [
   //   'icon': Icons.history_rounded,
   // },
   {
-    'label': 'このアプリについて',
+    'label': 'About this App',
     'value': DefaultPopupMenuItemsType.about,
     'icon': Icons.description_outlined,
   },
   {
-    'label': 'テーマの選択',
+    'label': 'Theme Selection',
     'value': DefaultPopupMenuItemsType.selectTheme,
     'icon': Icons.brightness_medium_rounded,
   },
 ];
 
 final SelectOptionGroup<ThemeMode> selectThemeOptionGroup = SelectOptionGroup(
-  title: 'テーマの選択',
+  title: 'Theme Selection',
   options: [
-    SelectOption<ThemeMode>(label: 'ライト', value: ThemeMode.light),
-    SelectOption<ThemeMode>(label: 'ダーク', value: ThemeMode.dark),
-    SelectOption<ThemeMode>(label: 'システムのデフォルト', value: ThemeMode.system),
+    SelectOption<ThemeMode>(label: 'Light', value: ThemeMode.light),
+    SelectOption<ThemeMode>(label: 'Dark', value: ThemeMode.dark),
+    SelectOption<ThemeMode>(label: 'System Default', value: ThemeMode.system),
   ],
 );
 
 final SelectOptionGroup<QrEyeShape> selectQrEyeShapeOptionGroup =
     SelectOptionGroup(
-  title: '切り出しシンボルの形',
+  title: 'Cutout symbol shape',
   icon: Icons.all_out_rounded,
   options: [
-    SelectOption<QrEyeShape>(label: '丸', value: QrEyeShape.circle),
-    SelectOption<QrEyeShape>(label: '四角', value: QrEyeShape.square),
+    SelectOption<QrEyeShape>(label: 'Circle', value: QrEyeShape.circle),
+    SelectOption<QrEyeShape>(label: 'Square', value: QrEyeShape.square),
   ],
 );
 
 final SelectOptionGroup<QrDataModuleShape> selectQrDataModuleShapeOptionGroup =
     SelectOptionGroup(
-  title: 'セルの形',
+  title: 'Shape',
   icon: Icons.apps_rounded,
   options: [
     SelectOption<QrDataModuleShape>(
-        label: '丸', value: QrDataModuleShape.circle),
+        label: 'Circle', value: QrDataModuleShape.circle),
     SelectOption<QrDataModuleShape>(
-        label: '四角', value: QrDataModuleShape.square),
+        label: 'Square', value: QrDataModuleShape.square),
   ],
 );
 
 final SelectOptionGroup<int> selectQrErrorCorrectLevelOptionGroup =
     SelectOptionGroup(
-  title: '誤り訂正能力',
+  title: 'Error correction capability',
   icon: Icons.check_circle_outline_rounded,
   options: [
-    SelectOption<int>(label: 'レベル H', value: QrErrorCorrectLevel.H),
-    SelectOption<int>(label: 'レベル L', value: QrErrorCorrectLevel.L),
-    SelectOption<int>(label: 'レベル M', value: QrErrorCorrectLevel.M),
-    SelectOption<int>(label: 'レベル Q', value: QrErrorCorrectLevel.Q),
+    SelectOption<int>(label: 'Level H', value: QrErrorCorrectLevel.H),
+    SelectOption<int>(label: 'Level L', value: QrErrorCorrectLevel.L),
+    SelectOption<int>(label: 'Level M', value: QrErrorCorrectLevel.M),
+    SelectOption<int>(label: 'Level Q', value: QrErrorCorrectLevel.Q),
   ],
 );
 
 final SelectOptionGroup<Color> selectQrSeedColorOptionGroup = SelectOptionGroup(
-  title: 'QR コードの色',
+  title: 'QR Code Color',
   icon: Icons.palette_outlined,
   options: [
     // SelectOption<Color>(label: 'ホワイト', value: const Color(0xFFFFFFFF)),
-    SelectOption<Color>(label: 'ブラック', value: const Color(0xFF333333)),
-    SelectOption<Color>(label: 'ブルー', value: Colors.blue),
-    SelectOption<Color>(label: 'ピンク', value: Colors.pink),
-    SelectOption<Color>(label: 'オレンジ', value: Colors.orange),
-    SelectOption<Color>(label: 'グリーン', value: Colors.green),
-    SelectOption<Color>(label: 'パープル', value: Colors.purple),
+    SelectOption<Color>(label: 'Black', value: const Color(0xFF333333)),
+    SelectOption<Color>(label: 'Blue', value: Colors.blue),
+    SelectOption<Color>(label: 'Pink', value: Colors.pink),
+    SelectOption<Color>(label: 'Oarange', value: Colors.orange),
+    SelectOption<Color>(label: 'Green', value: Colors.green),
+    SelectOption<Color>(label: 'Puprle', value: Colors.purple),
   ],
 );
 

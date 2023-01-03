@@ -3,10 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../constants.dart';
-import '../utils.dart';
+// import '../constants.dart';
+// import '../utils.dart';
 import '../widgets/default_popup_menu.dart';
-import '../widgets/history.dart';
+// import '../widgets/history.dart';
 import '../widgets/qrio.dart';
 
 class Home extends ConsumerWidget {
@@ -37,7 +37,7 @@ class Home extends ConsumerWidget {
             ),
             const SizedBox(width: 8),
             const Text(
-              'QR I/O',
+              'TAN Business Card',
               style: TextStyle(fontSize: 22),
             ),
           ],
@@ -51,36 +51,7 @@ class Home extends ConsumerWidget {
       ),
       body: Stack(
         alignment: AlignmentDirectional.topCenter,
-        children: [
-          const Qrio(),
-          SizedBox.expand(
-            child: DraggableScrollableSheet(
-              initialChildSize: defaultSheetHeight,
-              minChildSize: defaultSheetHeight,
-              maxChildSize: 1,
-              snap: true,
-              builder:
-                  (BuildContext context, ScrollController scrollController) {
-                return Container(
-                  margin: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-                  decoration: BoxDecoration(
-                    color: alphaBlend(
-                      Theme.of(context).colorScheme.primary.withOpacity(0.08),
-                      Theme.of(context).colorScheme.background,
-                    ),
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                    ),
-                  ),
-                  child: SingleChildScrollView(
-                    controller: scrollController,
-                    child: const History(),
-                  ),
-                );
-              },
-            ),
-          ),
+        children: const [Qrio()
         ],
       ),
     );

@@ -25,6 +25,7 @@ def keystorePropertiesFile = rootProject.file("keystore.properties")
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.google.gms.google-services'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
@@ -59,13 +60,11 @@ android {
 
     signingConfigs {
         release {
-            if (keystorePropertiesFile.exists()) {
-                def keystoreProperties = new Properties()
-                keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-                keyAlias keystoreProperties['keyAlias']
-                keyPassword keystoreProperties['keyPassword']
-                storeFile file(keystoreProperties['storeFile'])
-                storePassword keystoreProperties['storePassword']
+            if (project.hasProperty('TAN_RELEASE_STORE_FILE')) {
+                storeFile file(TAN_RELEASE_STORE_FILE)
+                storePassword TAN_RELEASE_PASSWORD
+                keyAlias TAN_RELEASE_KEY_ALIAS
+                keyPassword TAN_RELEASE_PASSWORD
             }
         }
     }
@@ -87,4 +86,6 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation platform('com.google.firebase:firebase-bom:31.1.1')
+    implementation 'com.google.firebase:firebase-analytics'
 }

@@ -24,13 +24,13 @@ class App extends ConsumerWidget {
         builder: ((ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
       return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'QR I/O',
+          title: 'TAN Business Card',
           localizationsDelegates: const [
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          supportedLocales: const [Locale('ja', 'JP')],
+          supportedLocales: const [Locale('id', 'ID')],
           themeMode: themeMode,
           theme: ThemeData(
             useMaterial3: true,

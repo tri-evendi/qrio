@@ -10,6 +10,7 @@ import 'config_items.dart';
 
 class DataBottomSheet extends StatelessWidget {
   const DataBottomSheet({super.key, required this.data, required this.ref});
+  
   final String data;
   final WidgetRef ref;
 
@@ -82,7 +83,7 @@ class DataBottomSheet extends StatelessWidget {
                 width: 12,
               ),
               Text(
-                '${data.length}文字',
+                '${data.length} letter',
                 style: TextStyle(
                   fontSize: 13,
                   color: Theme.of(context)
@@ -106,7 +107,7 @@ class DataBottomSheet extends StatelessWidget {
                 ScaffoldMessenger.of(context).showSnackBar(
                   BottomSnackBar(
                     context,
-                    'クリップボードにコピーしました',
+                    'Copied to clipboard',
                     icon: Icons.library_add_check_rounded,
                   ),
                 );
@@ -127,7 +128,7 @@ class DataBottomSheet extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  'クリップボードにコピー',
+                  'Copy to clipboard',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.secondary,
                   ),
@@ -141,7 +142,7 @@ class DataBottomSheet extends StatelessWidget {
           InkWell(
             onTap: () {
               Navigator.of(context).pop();
-              Share.share(data, subject: 'QR I/O の履歴共有');
+              Share.share(data, subject: 'QR I/O History sharing of');
             },
             child: Row(
               children: [
@@ -158,7 +159,7 @@ class DataBottomSheet extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  '共有',
+                  'In total',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.secondary,
                   ),
@@ -170,10 +171,10 @@ class DataBottomSheet extends StatelessWidget {
             height: 8,
           ),
           InkWell(
-            onTap: () {
+            onTap: () { 
               Navigator.of(context).pop();
               ref.read(qrImageConfigProvider.notifier).editData(data: data);
-              ConfigItems.updateTextFieldValue(data);
+              ConfigItems.updateTextFieldValue();
             },
             child: Row(
               children: [
@@ -190,7 +191,7 @@ class DataBottomSheet extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  'QRコードを作成',
+                  'Create QR code',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.secondary,
                   ),
@@ -220,7 +221,7 @@ class DataBottomSheet extends StatelessWidget {
                   width: 12,
                 ),
                 Text(
-                  '削除',
+                  'Delete',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.error,
                   ),

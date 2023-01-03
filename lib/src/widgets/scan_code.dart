@@ -147,7 +147,7 @@ class _ScanCodeState extends State<ScanCode> {
       ScaffoldMessenger.of(context).showSnackBar(
         BottomSnackBar(
           context,
-          '権限がありません',
+          'Not authorized',
         ),
       );
     }

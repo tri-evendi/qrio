@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 import '../screens/editor.dart';
+import 'my_code.dart';
 import 'scan_code.dart';
 
 class Qrio extends StatefulWidget {
@@ -25,13 +26,32 @@ class _QrioState extends State<Qrio> with SingleTickerProviderStateMixin {
           SizedBox(
             width: 8,
           ),
-          Text('読み取り'),
+          Text('My QR'),
           SizedBox(
             width: 8,
           ),
         ],
       ),
     ),
+    // Tab(
+    //   icon: Row(
+    //     mainAxisAlignment: MainAxisAlignment.center,
+    //     mainAxisSize: MainAxisSize.min,
+    //     children: const [
+    //       SizedBox(
+    //         width: 8,
+    //       ),
+    //       Icon(Icons.filter_center_focus_rounded),
+    //       SizedBox(
+    //         width: 8,
+    //       ),
+    //       Text('Reading'),
+    //       SizedBox(
+    //         width: 8,
+    //       ),
+    //     ],
+    //   ),
+    // ),
     Tab(
       icon: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -44,7 +64,7 @@ class _QrioState extends State<Qrio> with SingleTickerProviderStateMixin {
           SizedBox(
             width: 8,
           ),
-          Text('作成'),
+          Text('Create'),
           SizedBox(
             width: 10,
           ),
@@ -66,7 +86,8 @@ class _QrioState extends State<Qrio> with SingleTickerProviderStateMixin {
       body: TabBarView(
         controller: _tabController,
         children: const [
-          ScanCode(),
+          MyCode(),
+          // ScanCode(),
           Editor(),
         ],
       ),

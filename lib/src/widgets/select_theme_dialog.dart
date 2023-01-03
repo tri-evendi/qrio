@@ -29,7 +29,7 @@ class SelectThemeDialog extends ConsumerWidget {
                 .toList(growable: false)),
         actions: <Widget>[
           TextButton(
-              child: const Text('キャンセル'),
+              child: const Text('Cancel'),
               onPressed: () => Navigator.of(context).pop()),
           TextButton(
               child: const Text('OK'),

@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../app.dart';
 import '../qr_image_config.dart';
@@ -37,14 +38,15 @@ class QrCodePreview extends ConsumerWidget {
             qrImageConfig.qrSeedColor.green == qrImageConfig.qrSeedColor.blue;
 
     return Container(
+      // make the content in the middle of the screen
       alignment: Alignment.center,
-      height: 284,
+      height: 384,
       child: qrImageConfig.data != ''
           ? Column(
               children: [
                 Container(
                   margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                  height: 200,
+                  height: 300,
                   child: FittedBox(
                     child: RepaintBoundary(
                       key: _qrKey,
@@ -60,7 +62,7 @@ class QrCodePreview extends ConsumerWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 240,
+                  width: 340,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -76,7 +78,7 @@ class QrCodePreview extends ConsumerWidget {
                           await Share.shareXFiles(
                             [XFile(path)],
                             text: qrImageConfig.data,
-                            subject: 'QR I/O で作成したQRコードの共有',
+                            subject: 'Share the QR code created with',
                           );
                           applicationDocumentsFile.delete();
                         },
@@ -104,7 +106,7 @@ class QrCodePreview extends ConsumerWidget {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 BottomSnackBar(
                                   context,
-                                  'QRコードをダウンロードしました',
+                                  'Downloaded QR code',
                                   icon: Icons.file_download_done_rounded,
                                 ),
                               );
@@ -123,7 +125,7 @@ class QrCodePreview extends ConsumerWidget {
                                 ScaffoldMessenger.of(context).showSnackBar(
                               BottomSnackBar(
                                 context,
-                                'クリップボードにコピーしました',
+                                'Copied to clipboard',
                                 icon: Icons.library_add_check_rounded,
                               ),
                             ),
@@ -149,7 +151,7 @@ class QrCodePreview extends ConsumerWidget {
                       .withOpacity(0.3),
                 ),
                 Text(
-                  '表示するプレビューがありません',
+                  'No previews to show',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),

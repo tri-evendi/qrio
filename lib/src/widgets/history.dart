@@ -38,7 +38,7 @@ class History extends ConsumerWidget {
         ScaffoldMessenger.of(context).showSnackBar(
           BottomSnackBar(
             context,
-            'アプリを開けません',
+            'I cant open the app',
             icon: Icons.error_outline_rounded,
             background: Theme.of(context).colorScheme.error,
             foreground: Theme.of(context).colorScheme.onError,
@@ -81,7 +81,7 @@ class History extends ConsumerWidget {
                       width: 28,
                     ),
                     Text(
-                      '履歴',
+                      'History',
                       style: TextStyle(
                         color: Theme.of(context)
                             .colorScheme
@@ -93,7 +93,7 @@ class History extends ConsumerWidget {
                       width: 24,
                     ),
                     Text(
-                      '${List.from(historyList).length} 件',
+                      '${List.from(historyList).length} items',
                       style: TextStyle(
                         color: Theme.of(context)
                             .colorScheme
@@ -114,9 +114,9 @@ class History extends ConsumerWidget {
                                 builder: (context) => AlertDialog(
                                   icon:
                                       const Icon(Icons.delete_outline_rounded),
-                                  title: const Text('削除'),
+                                  title: const Text('Delete'),
                                   content: Text(
-                                    'すべての履歴を削除しますか？',
+                                    'Delete all history?',
                                     style: TextStyle(
                                       color: Theme.of(context)
                                           .colorScheme
@@ -128,14 +128,14 @@ class History extends ConsumerWidget {
                                         onPressed: () =>
                                             {Navigator.pop(context)},
                                         onLongPress: null,
-                                        child: const Text('キャンセル')),
+                                        child: const Text('Cancel')),
                                     TextButton(
                                       onPressed: () async {
                                         Navigator.pop(context);
                                         deleteHistory();
                                       },
                                       onLongPress: null,
-                                      child: const Text('すべて削除'),
+                                      child: const Text('Delete all'),
                                     ),
                                   ],
                                 ),
@@ -171,7 +171,7 @@ class History extends ConsumerWidget {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    '読み取り・作成の履歴はありません',
+                    'No read/create history',
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onBackground,
                     ),
@@ -191,7 +191,7 @@ class History extends ConsumerWidget {
                       ScaffoldMessenger.of(context).showSnackBar(
                         BottomSnackBar(
                           context,
-                          'クリップボードにコピーしました',
+                          'Copied to clipboard',
                           icon: Icons.library_add_check_rounded,
                         ),
                       );
@@ -227,7 +227,7 @@ class History extends ConsumerWidget {
                           onPressed: () {
                             Share.share(
                               e,
-                              subject: 'QR I/O の履歴共有',
+                              subject: 'QR I/O history sharing',
                             );
                           },
                           icon: const Icon(Icons.share_rounded),
